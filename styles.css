@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #4facfe, #f093fb);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  text-align: center;
+  width: 350px;
+}
+h1 {
+  color: #333;
+}
+input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #4facfe;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+button {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+}
+.hidden {
+  display: none;
+}
+.loading {
+  font-size: 20px;
+  color: #4facfe;
+  margin-top: 10px;
+  animation: spin 1s linear infinite; /* quay 2D đơn giản */
+  transform-origin: 50% 50%;
+  backface-visibility: hidden; /* ẩn mặt sau khi quay */
+  transform-style: flat; /* không dùng preserve-3d */
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg); /* quay 1 vòng quanh trục Z */
+  }
+}
+
+.game-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.choice {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+.choice:hover {
+  background: #ffeeba;
+  transform: scale(1.15);
+  box-shadow: 0 0 10px 3px rgba(255, 193, 7, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.5s ease;
+}
+.result.animate-win-lose {
+  animation: pulseScale 0.8s ease forwards;
+}
+.win {
+  color: green;
+}
+.lose {
+  color: red;
+}
+.draw {
+  color: gray;
+}
+.scoreboard {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btn-quit {
+  background: #ff4c4c;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.btn-quit:hover {
+  transform: scale(1.05);
+}
+
+/* 1. Fade in/out màn hình */
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* 4. Hiệu ứng text kết quả thắng thua */
+@keyframes pulseScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

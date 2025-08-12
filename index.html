@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Rock Paper Scissors Online</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Font & Icon -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container" id="login-screen">
+    <h1><i class="fa-solid fa-gamepad"></i> Rock Paper Scissors</h1>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <br />
+    <button onclick="joinGame()">Find Opponent</button>
+    <div id="loading" class="hidden">
+        <i class="fa-solid fa-spinner loading"></i>
+        <p>Searching for opponent...</p>
+        <p id="search-timer" style="margin-top:5px; font-weight:bold;"></p>
+    </div>
+  </div>
+
+  <div class="container hidden" id="game-screen">
+    <h1>
+      Opponent: <span id="opponent-name"></span>
+    </h1>
+    <div class="scoreboard">
+      <span id="player-score">You: 0</span> |
+      <span id="opponent-score">Opponent: 0</span>
+    </div>
+    <div class="game-buttons">
+      <div class="choice" onclick="makeMove('Rock')">
+        <i class="fa-solid fa-hand-fist"></i>
+      </div>
+      <div class="choice" onclick="makeMove('Paper')">
+        <i class="fa-solid fa-hand"></i>
+      </div>
+      <div class="choice" onclick="makeMove('Scissors')">
+        <i class="fa-solid fa-hand-scissors"></i>
+      </div>
+    </div>
+    <div class="result" id="result"></div>
+    <div style="margin-top: 15px;">
+      <button onclick="quitGame()" class="btn-quit">
+        Quit Game
+      </button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
